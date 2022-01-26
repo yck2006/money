@@ -3,4 +3,4 @@
 * [done] 4000 KRW / 4 = 1000 KRW
 * [done] 10 USD + 5 USD = 15 USD
 * [] wallet extract 5 USD = 5 USD
-* [] 10 USD + 5 EURO = 10 + (5 * 1.2) USD = 16 USD 
+* [] 10 USD + 5 EURO = 10 + (5 * 1.2) USD = 17 USD 

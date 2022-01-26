@@ -35,4 +35,4 @@ class Wallet:
         money_sum = 0
         for money in self.moneys:
             money_sum += money.amount
-        return money_sum
+        return Money(money_sum, currency)

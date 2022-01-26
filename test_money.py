@@ -29,8 +29,12 @@ class Test_Wallet:
         ten_dollar = Money(10, 'USD')
         wallet = Wallet()
         wallet.add(five_dollar, ten_dollar)
-        assert wallet.evaluate('USD') == 15
+        assert wallet.evaluate('USD') == Money(15, 'USD')
 
+    # def test_evaluate_diff_currency(self):
+    #     five_usd = Money(5, "USD")
+    #     ten_euro - Money(10, 'EUR')
+    #     wallet = Wallet()
+    #     wallet.adds(five_usd, ten_euro)
+    #     assert wallet.evaluate('USD') == 17
     
-
-
