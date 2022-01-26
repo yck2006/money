@@ -27,7 +27,7 @@ class Money:
 class Wallet:
     def __init__(self):
         self.moneys = []
-        self.euro_to_usd = 1.2
+        self.exchange_rate = {'USD->KRW': 1100, 'EUR->USD': 1.2}
 
     def add(self, *moneys):
         for money in moneys:
@@ -39,5 +39,7 @@ class Wallet:
             if currency == money.currency:        
                 money_sum += money.amount
             else:
-                money_sum += money.amount * self.euro_to_usd
+                exchange_key = f"{money.currency}->{currency}"
+                exchange_rate = self.exchange_rate[exchange_key]
+                money_sum += money.amount * exchange_rate
         return Money(money_sum, currency)

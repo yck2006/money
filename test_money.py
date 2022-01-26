@@ -31,9 +31,16 @@ class Test_Wallet:
         wallet.add(five_dollar, ten_dollar)
         assert wallet.evaluate('USD') == Money(15, 'USD')
 
-    def test_evaluate_diff_currency(self):
+    def test_evaluate_euro_usd(self):
         five_usd = Money(5, "USD")
         ten_euro = Money(10, 'EUR')
         wallet = Wallet()
         wallet.add(five_usd, ten_euro)
         assert wallet.evaluate('USD') == Money(17, 'USD')
+
+    def test_evaluate_usd_krw(self):
+        thou_krw = Money(1000, "KRW")
+        one_usd = Money(1, 'USD')
+        wallet = Wallet()
+        wallet.add(thou_krw, one_usd)
+        assert wallet.evaluate('KRW') == Money(2100, 'KRW')
