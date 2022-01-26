@@ -15,6 +15,9 @@ class Money:
     def __eq__(self, other):
         return self.amount == other.amount and self.currency ==self.currency
 
+    def __repr__(self):
+        return f"<{self.currency} {self.amount}>"
+
     def __mul__(self, multiplier):
         return Money(self.amount * multiplier, self.currency)
 
@@ -24,15 +27,17 @@ class Money:
 class Wallet:
     def __init__(self):
         self.moneys = []
-        self.amount = 0
+        self.euro_to_usd = 1.2
 
     def add(self, *moneys):
         for money in moneys:
             self.moneys.append(money)
-            self.amount += money.amount
 
     def evaluate(self, currency):
         money_sum = 0
         for money in self.moneys:
-            money_sum += money.amount
+            if currency == money.currency:        
+                money_sum += money.amount
+            else:
+                money_sum += money.amount * self.euro_to_usd
         return Money(money_sum, currency)
