@@ -1,3 +1,6 @@
+from exchange_rate import get_exchange_rate
+
+
 class Money:
     def __init__(self, amount, currency):
         self.amount = amount
@@ -41,13 +44,13 @@ class Wallet:
                 converted_money = convert(money, currency)
                 money_sum += converted_money.amount
         return Money(money_sum, currency)
-
+    
 def convert(money, currency):
+    
     exchange_rates = {'EUR->USD': 1.2, 'USD->KRW': 1100}
     if currency == money.currency:
         return money
     else:
-        exchange_key = f'{money.currency}->{currency}'
-        exchange_rate = exchange_rates[exchange_key]
+        exchange_rate = get_exchange_rate(money.currency, currency)
         return Money(money.amount * exchange_rate, currency)
-    pass
+    
