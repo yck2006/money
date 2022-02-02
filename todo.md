@@ -4,3 +4,4 @@
 * [done] 10 USD + 5 USD = 15 USD
 * [done] 10 USD + 5 EURO = 10 + (5 * 1.2) USD = 17 USD 
 * [done] 1000 RKW + 1 USD = 2100 KRW
+* [done] Wallet does not know about currency exchange rate

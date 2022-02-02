@@ -44,3 +44,9 @@ class Test_Wallet:
         wallet = Wallet()
         wallet.add(thou_krw, one_usd)
         assert wallet.evaluate('KRW') == Money(2100, 'KRW')
+
+def test_convert():
+    one_euro = Money(5, 'EUR')
+    expected = Money(6, 'USD')
+    actual = convert(one_euro, 'USD')
+    assert expected == actual
